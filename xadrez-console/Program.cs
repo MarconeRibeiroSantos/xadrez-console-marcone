@@ -4,16 +4,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using tabuleiro;
+using xadrez; 
 
 namespace xadrez_console {
     class Program {
         static void Main(string[] args) {
 
-            Posicao P;
+            Tabuleiro tab = new Tabuleiro(8, 8);
 
-            P = new Posicao(3, 4);
+            //Colocar peça na posição desejada
+            tab.colocarPeca(new Torre(tab, Cor.Preta), new Posicao(0, 0));
+            tab.colocarPeca(new Torre(tab, Cor.Preta), new Posicao(1, 3));
+            tab.colocarPeca(new Rei(tab, Cor.Preta), new Posicao(2, 4));
 
-            Console.WriteLine("Posição: " + P);
+            Tela.imprimirTabuleiro(tab);
 
             Console.ReadLine();
         }
