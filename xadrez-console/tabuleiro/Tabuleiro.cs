@@ -47,6 +47,19 @@
             p.posicao = pos;
         }
 
+        //Método para retirar uma peça
+        public Peca retirarPeca(Posicao pos)
+        {
+            if (peca(pos) == null)
+            {
+                return null; ;
+            }
+            Peca aux = peca(pos);
+            aux.posicao = null;
+            pecas[pos.linha, pos.coluna] = null;
+            return aux;
+        }
+
         //Dado que tenho uma matriz 00x77(8x8), Quando colocar peça na posição, então a peça não pode estar fora da faixa 8x8
         public bool posicaoValida(Posicao pos)
         {
